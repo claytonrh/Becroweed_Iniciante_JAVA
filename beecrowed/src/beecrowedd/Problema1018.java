@@ -1,3 +1,5 @@
+//não está funcionando
+
 import java.util.Scanner;
 import java.util.Locale;
 
