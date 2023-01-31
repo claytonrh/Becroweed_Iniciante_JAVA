@@ -1,38 +1,34 @@
-//não está funcionando
-
-import java.util.Scanner;
+import java.util.Locale; import java.util.Scanner;
 
 public class Main {
-	
-	public static void main (String[]args) { 
-	
-	Scanner input = new Scanner(System.in);
-	
-	float valor = input.nextFloat();
-	int valor2 = (int)valor;
-	double restoDeValor = valor % 1;	
 
-	int notas [] = {100, 50, 20, 10, 5, 2};
-	double moedas [] = {1, 0.50, 0.25, 0.10, 0.05, 0.01};
-	
-	System.out.println ( "NOTAS:" );
-	
-	for (int nota : notas) { 
-		int qtd = valor2 / nota;
-		valor2 = valor2 % nota;
-			
-		System.out.printf ( "%d nota(s) de R$ %.2f\n", qtd,  (double)nota);	
-		}
-	
-	System.out.println ( "MOEDAS:" );	
-	
-	for (double moeda : moedas) { 
-		double qtd2 = restoDeValor / moeda;
-		restoDeValor = restoDeValor % moeda;				
-			
-		System.out.printf((int)qtd2 + " moeda(s) de R$ %.2f\n", moeda);
-		}
-	
-	input.close();
-	}
+public static void main(String[] args) {
+
+    Locale.setDefault(Locale.US);
+    Scanner sc = new Scanner(System.in);
+
+    double notas[] = {100.0, 50.0, 20.0, 10.0, 5.0, 2.0};
+    double moedas[] = {1.0, 0.50, 0.25, 0.10, 0.05, 0.01};
+    int qtdNota, qtdMoeda;
+
+    double valor = sc.nextDouble();
+    valor = (valor * 100) + 0.05;
+
+    System.out.println("NOTAS:");
+    for (int i = 0; i < notas.length; i++) {
+        qtdNota = (int) (valor / (notas[i] * 100));
+        valor %= notas[i] * 100;
+        System.out.printf("%d nota(s) de R$ %.2f%n", qtdNota, notas[i]);
+    }
+
+    System.out.println("MOEDAS:");
+    for (int i = 0; i < moedas.length; i++) {
+        qtdMoeda = (int) (valor / (moedas[i] * 100));
+        valor %= moedas[i] * 100;
+        System.out.printf("%d moeda(s) de R$ %.2f%n", qtdMoeda, moedas[i]);
+    }
+
+    sc.close();
+
+}
 }
