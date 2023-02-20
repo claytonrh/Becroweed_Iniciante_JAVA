@@ -1,4 +1,4 @@
-//não está funcionando
+//site não aceita dessa forma
 
 import java.util.Scanner;
 import java.util.Locale;
